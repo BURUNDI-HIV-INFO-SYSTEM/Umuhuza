@@ -1,6 +1,6 @@
 # UMUHUZA
 
-HEAL (Healthcare Exchange and Access Layer)  avec le codename UMUHUZA est une implémentation d'une couche d'interopérabilité pour les systèmes de santé nationaux, s'appuyant sur les technologies OpenHIM et FHIR Server.
+ "Healthcare Unified Zero-friction Adapter" (HUZA) au complet UMUHUZA est une implémentation d'une couche d'interopérabilité pour les systèmes de santé nationaux, s'appuyant sur les technologies OpenHIM et FHIR Server.
 
 ## Aperçu
 
