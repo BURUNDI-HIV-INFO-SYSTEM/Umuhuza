@@ -27,12 +27,17 @@ services:
       # api_openid_callbackUrl: ${KC_OPENHIM_ROOT_URL}
       # api_openid_clientId: ${KC_OPENHIM_CLIENT_ID}
       # api_openid_clientSecret: ${KC_OPENHIM_CLIENT_SECRET}
+      OPENHIM_CORE_HTTPS_KEY: "/etc/openhim/tls/private.key"
+      OPENHIM_CORE_HTTPS_CERT: "/etc/openhim/tls/certificate.crt"
     ports:
       - "8075:8080"
       - "5000:5000"
       - "5001:5001"
     networks:
       - openhim
+    volumes:
+      - "/root/ssl_certs/certificate.key:/etc/openhim/tls/private.key:ro"
+      - "/root/ssl_certs/certificate.crt:/etc/openhim/tls/certificate.crt:ro"
     healthcheck:
      test: "curl -sSk https://openhim-core:8080/heartbeat || exit 1"
      interval: 30s
