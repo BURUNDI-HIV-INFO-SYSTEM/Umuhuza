@@ -54,6 +54,8 @@ services:
       - "9000:80"
     volumes:
       - "./default.json:/usr/share/nginx/html/config/default.json:ro"
+      - "/root/ssl_certs/certificate.key:/etc/openhim/tls/private.key:ro"
+      - "/root/ssl_certs/certificate.crt:/etc/openhim/tls/certificate.crt:ro"
     healthcheck:
      test: "curl -sS http://openhim-console || exit 1"
      interval: 30s
