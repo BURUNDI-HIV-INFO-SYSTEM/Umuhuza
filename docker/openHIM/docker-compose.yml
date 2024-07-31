@@ -52,6 +52,8 @@ services:
       - openhim
     ports:
       - "9000:80"
+    volumes:
+      - "./default.json:/usr/share/nginx/html/config/default.json:ro"
     healthcheck:
      test: "curl -sS http://openhim-console || exit 1"
      interval: 30s
