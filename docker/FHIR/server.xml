@@ -48,7 +48,7 @@
     <!-- You should set jvmRoute to support load-balancing via AJP ie :
     <Engine name="Catalina" defaultHost="localhost" jvmRoute="jvm1">
     -->
-    <Engine name="Catalina" defaultHost="localhost">
+    <Engine name="Catalina" defaultHost="fhir.kwunga.org">
       <!-- Use the LockOutRealm to prevent attempts to guess user passwords
            via a brute-force attack -->
       <Realm className="org.apache.catalina.realm.LockOutRealm">
@@ -60,7 +60,7 @@
                resourceName="UserDatabase"/>
       </Realm>
 
-      <Host name="localhost"  appBase="webapps"
+      <Host name="fhir.kwunga.org"  appBase="webapps"
             unpackWARs="true" autoDeploy="true">
 
         <!-- Access log processes all example.
