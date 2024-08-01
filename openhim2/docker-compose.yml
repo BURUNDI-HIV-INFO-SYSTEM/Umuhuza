@@ -5,6 +5,8 @@ services:
     image: mongo:4.4
     volumes:
       - mongo_data:/data/db
+    networks:
+      - openhim_network
     restart: always
 
   openhim-core:
@@ -19,8 +21,10 @@ services:
       - mongo_atnaUrl=mongodb://mongo/openhim
     volumes:
       - ./core:/usr/src/app/config
-      - "/root/ssl_certs/certificate.key:/etc/openhim/tls/private.key:ro"
-      - "/root/ssl_certs/certificate.crt:/etc/openhim/tls/certificate.crt:ro"
+      - "/root/ssl_certs/certificate.key:/usr/src/app/certs/private.key:ro"
+      - "/root/ssl_certs/certificate.crt:/usr/src/app/certs/certificate.crt:ro"
+    networks:
+      - openhim_network
     restart: always
 
   openhim-console:
@@ -31,7 +35,13 @@ services:
       - openhim-core
     volumes:
       - ./console:/usr/share/nginx/html/config
+    networks:
+      - openhim_network
     restart: always
+
+networks:
+  openhim_network:
+    driver: bridge
 
 volumes:
   mongo_data:
