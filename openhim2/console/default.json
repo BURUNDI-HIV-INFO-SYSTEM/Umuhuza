@@ -1,15 +1,19 @@
-{
-    "version": "1.13.0",
-    "minimumCoreVersion": "5.2.5",
+  {
+    "version": "1.18.2",
+    "minimumCoreVersion": "5.2.0",
     "protocol": "https",
     "host": "openhim.kwunga.org",
+    "hostPath": "",
     "port": 5001,
-    "title": "OpenHIM Admin Console",
+    "title": "Admin Console",
     "footerTitle": "OpenHIM Administration Console",
     "footerPoweredBy": "<a href='http://openhim.org/' target='_blank'>Powered by OpenHIM</a>",
     "loginBanner": "",
     "mediatorLastHeartbeatWarningSeconds": 60,
     "mediatorLastHeartbeatDangerSeconds": 120,
     "showLoginForm": true,
-    "ssoEnabled": false
+    "ssoEnabled": false,
+    "keyCloakUrl": "http://openhim.kwunga.org:9088",
+    "keyCloakRealm": "platform-realm",
+    "keyCloakClientId": "openhim-oauth"
   }
