@@ -29,10 +29,10 @@ services:
       # api_openid_clientSecret: ${KC_OPENHIM_CLIENT_SECRET}
       OPENHIM_CORE_HTTPS_KEY: "/etc/openhim/tls/private.key"
       OPENHIM_CORE_HTTPS_CERT: "/etc/openhim/tls/certificate.crt"
-    ports:
-      - "8075:8080"
-      - "5000:5000"
-      - "5001:5001"
+    # ports:
+    #   - "8075:8080"
+    #   - "5000:5000"
+    #   - "5001:5001"
     networks:
       - openhim
     volumes:
