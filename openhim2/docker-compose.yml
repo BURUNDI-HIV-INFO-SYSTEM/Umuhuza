@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo:4.4
+    volumes:
+      - mongo_data:/data/db
+    restart: always
+
+  openhim-core:
+    image: jembi/openhim-core:latest
+    ports:
+      - "5001:5001"  # API port
+      - "5000:5000"  # HTTPS port
+    depends_on:
+      - mongo
+    environment:
+      - mongo_url=mongodb://mongo/openhim
+      - mongo_atnaUrl=mongodb://mongo/openhim
+    volumes:
+      - ./core:/usr/src/app/config
+      - "/root/ssl_certs/certificate.key:/etc/openhim/tls/private.key:ro"
+      - "/root/ssl_certs/certificate.crt:/etc/openhim/tls/certificate.crt:ro"
+    restart: always
+
+  openhim-console:
+    image: jembi/openhim-console:latest
+    ports:
+      - "9000:80"
+    depends_on:
+      - openhim-core
+    volumes:
+      - ./console:/usr/share/nginx/html/config
+    restart: always
+
+volumes:
+  mongo_data:

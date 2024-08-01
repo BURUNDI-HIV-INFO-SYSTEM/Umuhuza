@@ -1,0 +1,35 @@
+{
+    "bindAddress": "0.0.0.0",
+    "mongo": {
+      "url": "mongodb://mongo/openhim",
+      "atnaUrl": "mongodb://mongo/openhim"
+    },
+    "logger": {
+      "level": "info",
+      "logToDB": true
+    },
+    "api": {
+      "enabled": true,
+      "protocol": "https",
+      "port": 5001,
+      "authenticationTypes": ["token", "basic"],
+      "certificateManagement": {
+        "watchFSForCert": true,
+        "certPath": "/usr/src/app/certs/certificate.crt",
+        "keyPath": "/usr/src/app/certs/private.key"
+      }
+    },
+    "rerun": {
+      "httpPort": 5001,
+      "apiPort": 5001
+    },
+    "router": {
+      "httpPort": 5001,
+      "httpsPort": 5000,
+      "timeout": 60000
+    },
+    "authentication": {
+      "enableMutualTLSAuthentication": false,
+      "enableBasicAuthentication": true
+    }
+  }
